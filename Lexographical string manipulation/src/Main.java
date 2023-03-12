@@ -7,10 +7,18 @@ public class Main {
         String smallest = "";
         String largest = "";
         // Complete the function
-        int count=s.length();
+       /* int count=s.length();
         int last=count-k;
         smallest=s.substring(last,count);
-        largest=s.substring(0,k);
+        largest=s.substring(0,k);*/
+        smallest = largest = s.substring(0, k);
+        for (int i=1; i<s.length()-k+1; i++) {
+            String substr = s.substring(i, i+k);
+            if (smallest.compareTo(substr) > 0)
+                smallest = substr;
+            if (largest.compareTo(substr) < 0)
+                largest = substr;
+        }
         // 'smallest' must be the lexicographically smallest substring of length 'k'
         // 'largest' must be the lexicographically largest substring of length 'k'
 
